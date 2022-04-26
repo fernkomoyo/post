@@ -5509,6 +5509,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -28336,364 +28363,446 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    !_vm.loading
-      ? _c("div", [
-          _c("img", {
-            staticClass: "rounded mx-auto d-block",
-            attrs: { src: "image", alt: "loader" },
-          }),
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-primary btn-lg w-100",
-        attrs: {
-          type: "button",
-          "data-bs-toggle": "modal",
-          "data-bs-target": "#createModal",
+  return _c(
+    "div",
+    [
+      !_vm.loading
+        ? _c("div", [
+            _c("img", {
+              staticClass: "rounded mx-auto d-block",
+              attrs: { src: "image", alt: "loader" },
+            }),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary btn-lg w-100",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#createModal",
+          },
         },
-      },
-      [_vm._v("Add new post")]
-    ),
-    _vm._v(" "),
-    _vm.tasks
-      ? _c("table", { staticClass: "table" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.tasks, function (task, index) {
-              return _c("tr", [
-                _c("td", [_vm._v(_vm._s(index + 1))]),
+        [_vm._v("Add new post")]
+      ),
+      _vm._v(" "),
+      _vm.tasks
+        ? _c("table", { staticClass: "table" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.tasks, function (task, index) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(index + 1))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(task.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(task.body))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c("img", {
+                      attrs: {
+                        src: task.file_path,
+                        width: "128",
+                        height: "128",
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-info",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#updateModal",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.loadUpdateModal(index)
+                          },
+                        },
+                      },
+                      [_vm._v("Edit")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function ($event) {
+                            return _vm.deleteTask(index)
+                          },
+                        },
+                      },
+                      [_vm._v("Delete")]
+                    ),
+                  ]),
+                ])
+              }),
+              0
+            ),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._l(_vm.tasks, function (task, index) {
+        return _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: { src: task.file_path, alt: "Card image cap" },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(task.name)),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(_vm._s(task.body)),
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-info w-20",
+                    attrs: {
+                      type: "button",
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#updateModal",
+                    },
+                    on: {
+                      click: function ($event) {
+                        return _vm.loadUpdateModal(index)
+                      },
+                    },
+                  },
+                  [_vm._v("Edit")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger w-20",
+                    on: {
+                      click: function ($event) {
+                        return _vm.deleteTask(index)
+                      },
+                    },
+                  },
+                  [_vm._v("Delete")]
+                ),
+              ]),
+            ]),
+          ]),
+        ])
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "createModal",
+            tabindex: "-1",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true",
+          },
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm.errors.length > 0
+                  ? _c("div", { staticClass: "alet alert-danger" }, [
+                      _c(
+                        "ul",
+                        _vm._l(_vm.errors, function (error) {
+                          return _c("li", [_vm._v(_vm._s(error))])
+                        }),
+                        0
+                      ),
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(task.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(task.body))]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("img", {
-                    attrs: { src: task.file_path, width: "128", height: "128" },
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Post Title"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.task.name,
+                        expression: "task.name",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "name" },
+                    domProps: { value: _vm.task.name },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.task, "name", $event.target.value)
+                      },
+                    },
                   }),
                 ]),
                 _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-info",
-                      attrs: {
-                        type: "button",
-                        "data-bs-toggle": "modal",
-                        "data-bs-target": "#updateModal",
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "description" } }, [
+                    _vm._v("Description"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.task.body,
+                        expression: "task.body",
                       },
-                      on: {
-                        click: function ($event) {
-                          return _vm.loadUpdateModal(index)
-                        },
-                      },
-                    },
-                    [_vm._v("Edit")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger",
-                      on: {
-                        click: function ($event) {
-                          return _vm.deleteTask(index)
-                        },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "description" },
+                    domProps: { value: _vm.task.body },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.task, "body", $event.target.value)
                       },
                     },
-                    [_vm._v("Delete")]
-                  ),
-                ]),
-              ])
-            }),
-            0
-          ),
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "createModal",
-          tabindex: "-1",
-          "aria-labelledby": "exampleModalLabel",
-          "aria-hidden": "true",
-        },
-      },
-      [
-        _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _vm.errors.length > 0
-                ? _c("div", { staticClass: "alet alert-danger" }, [
-                    _c(
-                      "ul",
-                      _vm._l(_vm.errors, function (error) {
-                        return _c("li", [_vm._v(_vm._s(error))])
-                      }),
-                      0
-                    ),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Post Title")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.task.name,
-                      expression: "task.name",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", id: "name" },
-                  domProps: { value: _vm.task.name },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.task, "name", $event.target.value)
-                    },
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "description" } }, [
-                  _vm._v("Description"),
+                  }),
                 ]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.task.body,
-                      expression: "task.body",
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "image" } }, [
+                    _vm._v("Add Image"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.task.file_path,
+                        expression: "task.file_path",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "image" },
+                    domProps: { value: _vm.task.file_path },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.task, "file_path", $event.target.value)
+                      },
                     },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", id: "description" },
-                  domProps: { value: _vm.task.body },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.task, "body", $event.target.value)
-                    },
-                  },
-                }),
+                  }),
+                ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "image" } }, [_vm._v("Add Image")]),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  },
+                  [_vm._v("Close")]
+                ),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.task.file_path,
-                      expression: "task.file_path",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", id: "image" },
-                  domProps: { value: _vm.task.file_path },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.task, "file_path", $event.target.value)
-                    },
+                _c(
+                  "button",
+                  {
+                    staticClass: "form-control",
+                    attrs: { type: "button" },
+                    on: { click: _vm.createTask },
                   },
-                }),
+                  [_vm._v("Save changes")]
+                ),
               ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-secondary",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                },
-                [_vm._v("Close")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "form-control",
-                  attrs: { type: "button" },
-                  on: { click: _vm.createTask },
-                },
-                [_vm._v("Save changes")]
-              ),
             ]),
           ]),
-        ]),
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "updateModal",
-          tabindex: "-1",
-          "aria-labelledby": "exampleModalLabel",
-          "aria-hidden": "true",
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "updateModal",
+            tabindex: "-1",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true",
+          },
         },
-      },
-      [
-        _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(2),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _vm.errors.length > 0
-                ? _c("div", { staticClass: "alet alert-danger" }, [
-                    _c(
-                      "ul",
-                      _vm._l(_vm.errors, function (error) {
-                        return _c("li", [_vm._v(_vm._s(error))])
-                      }),
-                      0
-                    ),
-                  ])
-                : _vm._e(),
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(3),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Post Title")]),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm.errors.length > 0
+                  ? _c("div", { staticClass: "alet alert-danger" }, [
+                      _c(
+                        "ul",
+                        _vm._l(_vm.errors, function (error) {
+                          return _c("li", [_vm._v(_vm._s(error))])
+                        }),
+                        0
+                      ),
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.new_update_task.name,
-                      expression: "new_update_task.name",
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Post Title"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.new_update_task.name,
+                        expression: "new_update_task.name",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "name" },
+                    domProps: { value: _vm.new_update_task.name },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.new_update_task,
+                          "name",
+                          $event.target.value
+                        )
+                      },
                     },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", id: "name" },
-                  domProps: { value: _vm.new_update_task.name },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.new_update_task, "name", $event.target.value)
-                    },
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "description" } }, [
-                  _vm._v("Description"),
+                  }),
                 ]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.new_update_task.body,
-                      expression: "new_update_task.body",
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "description" } }, [
+                    _vm._v("Description"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.new_update_task.body,
+                        expression: "new_update_task.body",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "description" },
+                    domProps: { value: _vm.new_update_task.body },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.new_update_task,
+                          "body",
+                          $event.target.value
+                        )
+                      },
                     },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", id: "description" },
-                  domProps: { value: _vm.new_update_task.body },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.new_update_task, "body", $event.target.value)
-                    },
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "image" } }, [_vm._v("Add Image")]),
+                  }),
+                ]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.new_update_task.file_path,
-                      expression: "new_update_task.file_path",
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "image" } }, [
+                    _vm._v("Add Image"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.new_update_task.file_path,
+                        expression: "new_update_task.file_path",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "image" },
+                    domProps: { value: _vm.new_update_task.file_path },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.new_update_task,
+                          "file_path",
+                          $event.target.value
+                        )
+                      },
                     },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", id: "image" },
-                  domProps: { value: _vm.new_update_task.file_path },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.new_update_task,
-                        "file_path",
-                        $event.target.value
-                      )
-                    },
-                  },
-                }),
+                  }),
+                ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-secondary",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                },
-                [_vm._v("Close")]
-              ),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "form-control",
-                  attrs: { type: "button" },
-                  on: { click: _vm.updateTask },
-                },
-                [_vm._v("Save changes")]
-              ),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "form-control",
+                    attrs: { type: "button" },
+                    on: { click: _vm.updateTask },
+                  },
+                  [_vm._v("Save changes")]
+                ),
+              ]),
             ]),
           ]),
-        ]),
-      ]
-    ),
-  ])
+        ]
+      ),
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function () {
@@ -28707,6 +28816,28 @@ var staticRenderFns = [
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Body")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [_vm._v("CREATE YOUR POST!")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [_vm._v("Click anywhere.")]),
+        _vm._v(" "),
+        _c("a", {
+          staticClass: "btn stretched-link",
+          attrs: {
+            href: "#",
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#createModal",
+          },
+        }),
       ]),
     ])
   },
