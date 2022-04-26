@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <task-component>
-                
-            </task-component>
+            <h1>Manage Posts</h1>
+            <hr>
+            <task-component></task-component>
             
         </div>
     </div>
