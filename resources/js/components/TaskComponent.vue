@@ -79,10 +79,12 @@
                         <label for="description">Description</label>
                         <input v-model="task.body" type="text" id="description" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label for="image">Add Image</label>
-                        <input v-model="task.file_path" type="text" id="image" class="form-control">
-                    </div>
+                    <label for="description">Upload your file</label>
+                    <form action="/file-upload" class="form-control dropzone" id="dropzone">
+                        <div class="fallback">
+                            <input name="file" type="file" multiple />
+                        </div>
+                    </form>
                     
                 </div>
                 <div class="modal-footer">
@@ -139,6 +141,8 @@
     
 </template>
 
+
+<script src="../../assets/js/plugins/dropzone.min.js"></script>
 <script>
     export default {
 

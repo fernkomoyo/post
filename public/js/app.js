@@ -5544,6 +5544,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -28541,31 +28545,11 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "image" } }, [_vm._v("Add Image")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.task.file_path,
-                      expression: "task.file_path",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", id: "image" },
-                  domProps: { value: _vm.task.file_path },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.task, "file_path", $event.target.value)
-                    },
-                  },
-                }),
+              _c("label", { attrs: { for: "description" } }, [
+                _vm._v("Upload your file"),
               ]),
+              _vm._v(" "),
+              _vm._m(2),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "modal-footer" }, [
@@ -28607,7 +28591,7 @@ var render = function () {
       [
         _c("div", { staticClass: "modal-dialog" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(2),
+            _vm._m(3),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _vm.errors.length > 0
@@ -28782,6 +28766,23 @@ var staticRenderFns = [
         },
       }),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      {
+        staticClass: "form-control dropzone",
+        attrs: { action: "/file-upload", id: "dropzone" },
+      },
+      [
+        _c("div", { staticClass: "fallback" }, [
+          _c("input", { attrs: { name: "file", type: "file", multiple: "" } }),
+        ]),
+      ]
+    )
   },
   function () {
     var _vm = this
