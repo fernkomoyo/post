@@ -31,23 +31,22 @@
         <div class="card-deck">
             <div class="row">
                 <!-- Boton para crear con bootstrap card -->
-                <div class="card " style="width: 18rem;">
+                <div class="card bg-dark text-white" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">CREATE YOUR POST!</h5>
-                    <p class="card-text">Click anywhere.</p>
+                    <h5 class="card-title">Create new</h5>
                     <a href="#" class="btn stretched-link" type="button" data-bs-toggle="modal" data-bs-target="#createModal"></a>
                 </div>
                 </div>
 
             <div class="col-md-4 col-6 my-1 d-flex align-items-stretch" v-for="(task, index) in tasks">
-                <div class="card" style="width: 18rem;">
+                <div class="card bg-dark text-white" style="width: 18rem;">
                 <img class="card-img-top" :src="task.file_path" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{task.name}}</h5>
                     <p class="card-text">{{task.body }}</p>
                     <hr>
-                    <td><button @click="loadUpdateModal(index)" type="button" class="btn btn-info w-20" data-bs-toggle="modal" data-bs-target="#updateModal">Edit</button></td>
-                    <td><button @click="deleteTask(index)" class="btn btn-danger w-20">Delete</button></td>
+                    <button @click="loadUpdateModal(index)" type="button" class="btn btn-outline-warning w-20" data-bs-toggle="modal" data-bs-target="#updateModal">Edit</button>
+                    <button @click="deleteTask(index)" class="btn btn-outline-danger w-20">Delete</button>
                 </div>
                 </div>
             </div>
@@ -58,12 +57,12 @@
         <!-- Create Modal -->
             <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+                    <h5 class="modal-title text-justify" id="exampleModalLabel">Create Post</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body ">
 
                     <div class="alet alert-danger" v-if="errors.length > 0">
                         <ul>
@@ -71,15 +70,15 @@
                         </ul>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group border-white">
                         <label for="name">Post Title</label>
-                        <input v-model="task.name" type="text" id="name" class="form-control">
+                        <input v-model="task.name" type="text" id="name" class="form-control border-white">
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
                         <input v-model="task.body" type="text" id="description" class="form-control">
                     </div>
-                    <label for="description">Upload your file</label>
+                    <label for="description">Add Image</label>
                     <form action="/file-upload" class="form-control dropzone" id="dropzone">
                         <div class="fallback">
                             <input name="file" type="file" multiple />
@@ -88,8 +87,8 @@
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button @click= "createTask" type="button" class="form-control">Save changes</button>
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Discard</button>
+                    <button @click= "createTask" type="button" class="btn btn-success">Publish</button>
                 </div>
                 </div>
             </div>
@@ -98,7 +97,7 @@
         <!-- update Modal -->
             <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Update Post</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -119,15 +118,16 @@
                         <label for="description">Description</label>
                         <input v-model="new_update_task.body" type="text" id="description" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label for="image">Add Image</label>
-                        <input v-model="new_update_task.file_path" type="text" id="image" class="form-control">
-                    </div>
+                    <form action="/file-upload" class="form-control dropzone" id="dropzone">
+                        <div class="fallback">
+                            <input name="file" type="file" multiple />
+                        </div>
+                    </form>
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button @click= "updateTask" type="button" class="form-control">Save changes</button>
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Discard</button>
+                    <button @click= "updateTask" type="button" class="btn btn-success">Update Post</button>
                 </div>
                 </div>
             </div>

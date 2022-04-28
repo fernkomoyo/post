@@ -28399,7 +28399,10 @@ var render = function () {
               [
                 _c(
                   "div",
-                  { staticClass: "card", staticStyle: { width: "18rem" } },
+                  {
+                    staticClass: "card bg-dark text-white",
+                    staticStyle: { width: "18rem" },
+                  },
                   [
                     _c("img", {
                       staticClass: "card-img-top",
@@ -28417,40 +28420,36 @@ var render = function () {
                       _vm._v(" "),
                       _c("hr"),
                       _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-info w-20",
-                            attrs: {
-                              type: "button",
-                              "data-bs-toggle": "modal",
-                              "data-bs-target": "#updateModal",
-                            },
-                            on: {
-                              click: function ($event) {
-                                return _vm.loadUpdateModal(index)
-                              },
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-warning w-20",
+                          attrs: {
+                            type: "button",
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#updateModal",
+                          },
+                          on: {
+                            click: function ($event) {
+                              return _vm.loadUpdateModal(index)
                             },
                           },
-                          [_vm._v("Edit")]
-                        ),
-                      ]),
+                        },
+                        [_vm._v("Edit")]
+                      ),
                       _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger w-20",
-                            on: {
-                              click: function ($event) {
-                                return _vm.deleteTask(index)
-                              },
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-danger w-20",
+                          on: {
+                            click: function ($event) {
+                              return _vm.deleteTask(index)
                             },
                           },
-                          [_vm._v("Delete")]
-                        ),
-                      ]),
+                        },
+                        [_vm._v("Delete")]
+                      ),
                     ]),
                   ]
                 ),
@@ -28475,10 +28474,10 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content" }, [
+          _c("div", { staticClass: "modal-content bg-dark text-white" }, [
             _vm._m(1),
             _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
+            _c("div", { staticClass: "modal-body " }, [
               _vm.errors.length > 0
                 ? _c("div", { staticClass: "alet alert-danger" }, [
                     _c(
@@ -28491,7 +28490,7 @@ var render = function () {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
+              _c("div", { staticClass: "form-group border-white" }, [
                 _c("label", { attrs: { for: "name" } }, [_vm._v("Post Title")]),
                 _vm._v(" "),
                 _c("input", {
@@ -28503,7 +28502,7 @@ var render = function () {
                       expression: "task.name",
                     },
                   ],
-                  staticClass: "form-control",
+                  staticClass: "form-control border-white",
                   attrs: { type: "text", id: "name" },
                   domProps: { value: _vm.task.name },
                   on: {
@@ -28546,7 +28545,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("label", { attrs: { for: "description" } }, [
-                _vm._v("Upload your file"),
+                _vm._v("Add Image"),
               ]),
               _vm._v(" "),
               _vm._m(2),
@@ -28556,20 +28555,20 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-outline-danger",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Discard")]
               ),
               _vm._v(" "),
               _c(
                 "button",
                 {
-                  staticClass: "form-control",
+                  staticClass: "btn btn-success",
                   attrs: { type: "button" },
                   on: { click: _vm.createTask },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Publish")]
               ),
             ]),
           ]),
@@ -28590,7 +28589,7 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content" }, [
+          _c("div", { staticClass: "modal-content bg-dark text-white" }, [
             _vm._m(3),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
@@ -28660,55 +28659,27 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "image" } }, [_vm._v("Add Image")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.new_update_task.file_path,
-                      expression: "new_update_task.file_path",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", id: "image" },
-                  domProps: { value: _vm.new_update_task.file_path },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.new_update_task,
-                        "file_path",
-                        $event.target.value
-                      )
-                    },
-                  },
-                }),
-              ]),
+              _vm._m(4),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "modal-footer" }, [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-outline-danger",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Discard")]
               ),
               _vm._v(" "),
               _c(
                 "button",
                 {
-                  staticClass: "form-control",
+                  staticClass: "btn btn-success",
                   attrs: { type: "button" },
                   on: { click: _vm.updateTask },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Update Post")]
               ),
             ]),
           ]),
@@ -28724,14 +28695,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "card ", staticStyle: { width: "18rem" } },
+      {
+        staticClass: "card bg-dark text-white",
+        staticStyle: { width: "18rem" },
+      },
       [
         _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
-            _vm._v("CREATE YOUR POST!"),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [_vm._v("Click anywhere.")]),
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Create new")]),
           _vm._v(" "),
           _c("a", {
             staticClass: "btn stretched-link",
@@ -28753,7 +28723,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        {
+          staticClass: "modal-title text-justify",
+          attrs: { id: "exampleModalLabel" },
+        },
         [_vm._v("Create Post")]
       ),
       _vm._v(" "),
@@ -28804,6 +28777,23 @@ var staticRenderFns = [
         },
       }),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      {
+        staticClass: "form-control dropzone",
+        attrs: { action: "/file-upload", id: "dropzone" },
+      },
+      [
+        _c("div", { staticClass: "fallback" }, [
+          _c("input", { attrs: { name: "file", type: "file", multiple: "" } }),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true
