@@ -4,38 +4,15 @@
         <div v-if="!loading">
             <img class="rounded mx-auto d-block" src="image" alt="loader">
         </div>
-        <!-- 
-        <button type="button" data-bs-toggle="modal" data-bs-target="#createModal" class="btn btn-primary btn-lg w-100">Add new post</button>
-        <table class="table" v-if="tasks">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Body</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(task, index) in tasks">
-                    <td>{{index +1}}</td>
-                    <td>{{task.name}}</td>
-                    <td>{{task.body }}</td>
-                    <td><img :src="task.file_path" width="128" height="128"></td>
-                    <td><button @click="loadUpdateModal(index)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateModal">Edit</button></td>
-                    <td><button @click="deleteTask(index)" class="btn btn-danger">Delete</button></td>
-                </tr>
-            </tbody>
-        </table>
-        -->
+        
 
         <!-- presentacion de bootstrap cards!!! -->
         <div class="card-deck">
             <div class="row">
                 <!-- Boton para crear con bootstrap card -->
                 <div class="card bg-dark text-white" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Create new</h5>
-                    <a href="#" class="btn stretched-link" type="button" data-bs-toggle="modal" data-bs-target="#createModal"></a>
-                </div>
+                    <img class="card-img-top" src="https://i.imgur.com/qEXri9r.png" alt="Card image cap">
+                    <a href="#"  class="btn stretched-link" type="button" data-bs-toggle="modal" data-bs-target="#createModal"></a>
                 </div>
 
             <div class="col-md-4 col-6 my-1 d-flex align-items-stretch" v-for="(task, index) in tasks">
@@ -45,8 +22,8 @@
                     <h5 class="card-title">{{task.name}}</h5>
                     <p class="card-text">{{task.body }}</p>
                     <hr>
-                    <button @click="loadUpdateModal(index)" type="button" class="btn btn-outline-warning w-20" data-bs-toggle="modal" data-bs-target="#updateModal">Edit</button>
-                    <button @click="deleteTask(index)" class="btn btn-outline-danger w-20">Delete</button>
+                   <!-- <button @click="loadUpdateModal(index)" type="button" class="btn btn-outline-warning w-20" data-bs-toggle="modal" data-bs-target="#updateModal">Edit</button> -->
+                    <button @click="deleteTask(index)" class="btn btn-outline-danger btn-sm w-100 ">Delete Post</button>
                 </div>
                 </div>
             </div>

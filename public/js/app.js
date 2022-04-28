@@ -5525,29 +5525,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -28423,32 +28400,14 @@ var render = function () {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-outline-warning w-20",
-                          attrs: {
-                            type: "button",
-                            "data-bs-toggle": "modal",
-                            "data-bs-target": "#updateModal",
-                          },
-                          on: {
-                            click: function ($event) {
-                              return _vm.loadUpdateModal(index)
-                            },
-                          },
-                        },
-                        [_vm._v("Edit")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-outline-danger w-20",
+                          staticClass: "btn btn-outline-danger btn-sm w-100 ",
                           on: {
                             click: function ($event) {
                               return _vm.deleteTask(index)
                             },
                           },
                         },
-                        [_vm._v("Delete")]
+                        [_vm._v("Delete Post")]
                       ),
                     ]),
                   ]
@@ -28700,19 +28659,23 @@ var staticRenderFns = [
         staticStyle: { width: "18rem" },
       },
       [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v("Create new")]),
-          _vm._v(" "),
-          _c("a", {
-            staticClass: "btn stretched-link",
-            attrs: {
-              href: "#",
-              type: "button",
-              "data-bs-toggle": "modal",
-              "data-bs-target": "#createModal",
-            },
-          }),
-        ]),
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src: "https://i.imgur.com/qEXri9r.png",
+            alt: "Card image cap",
+          },
+        }),
+        _vm._v(" "),
+        _c("a", {
+          staticClass: "btn stretched-link",
+          attrs: {
+            href: "#",
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#createModal",
+          },
+        }),
       ]
     )
   },
