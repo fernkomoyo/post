@@ -2190,13 +2190,14 @@ progress {
   font-weight: 400;
   line-height: 1.5;
   color: #666;
+  border-radius: 10px;
   background-color: transparent;
   background-clip: padding-box;
-  border: 0 solid transparent;
+  border: 2px solid #434343;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  border-radius: 0;
+  border-radius: 100;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -3010,7 +3011,10 @@ textarea.form-control-lg {
           user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 0.8rem 1rem;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
   font-size: 1rem;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -5623,7 +5627,7 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1rem;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 0 none;
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px);
 }
@@ -5644,18 +5648,18 @@ textarea.form-control-lg {
 }
 
 .modal-footer {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   flex-shrink: 0;
   align-items: center;
   justify-content: flex-end;
   padding: 0.75rem;
-  border-top: 1px solid #dee2e6;
+  border-top: 0 none;
   border-bottom-right-radius: calc(0.3rem - 1px);
   border-bottom-left-radius: calc(0.3rem - 1px);
 }
 .modal-footer > * {
-  margin: 0.25rem;
+  margin: 0;
 }
 
 @media (min-width: 576px) {
@@ -11474,4 +11478,25 @@ legend {
 
 .popover-title {
   border-bottom: none;
+}
+
+.dropzone {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 16px;
+  border: 2px dashed #434343;
+  transition: 0.3s ease all;
+  margin-left: 35px;
+}
+
+.input-toggle-off {
+  display: none;
+}
+
+.bs-input-border{
+  border: 2px #fff
 }

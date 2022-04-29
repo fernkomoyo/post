@@ -5525,6 +5525,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -28433,8 +28444,17 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content bg-dark text-white" }, [
+          _c("div", { staticClass: "modal-content bg-black text-white" }, [
             _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "h2",
+              {
+                staticClass: "modal-title text-center",
+                attrs: { id: "exampleModalLabel" },
+              },
+              [_vm._v("Create Post")]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body " }, [
               _vm.errors.length > 0
@@ -28461,7 +28481,7 @@ var render = function () {
                       expression: "task.name",
                     },
                   ],
-                  staticClass: "form-control border-white",
+                  staticClass: "form-control",
                   attrs: { type: "text", id: "name" },
                   domProps: { value: _vm.task.name },
                   on: {
@@ -28503,18 +28523,44 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("label", { attrs: { for: "description" } }, [
-                _vm._v("Add Image"),
-              ]),
-              _vm._v(" "),
-              _vm._m(2),
+              _c(
+                "div",
+                {
+                  staticClass: "center",
+                  class: { "active-dropzone": _vm.active },
+                  on: {
+                    dragenter: function ($event) {
+                      $event.preventDefault()
+                      return _vm.toggleActive.apply(null, arguments)
+                    },
+                    dragleave: function ($event) {
+                      $event.preventDefault()
+                      return _vm.toggleActive.apply(null, arguments)
+                    },
+                    dragover: function ($event) {
+                      $event.preventDefault()
+                    },
+                    drop: function ($event) {
+                      $event.preventDefault()
+                      return _vm.toggleActive.apply(null, arguments)
+                    },
+                  },
+                },
+                [
+                  _c("label", { attrs: { for: "description" } }, [
+                    _vm._v("Add Image"),
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(2),
+                ]
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "modal-footer" }, [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-outline-danger",
+                  staticClass: "btn btn-sm btn-outline-danger w-50",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Discard")]
@@ -28523,7 +28569,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-success",
+                  staticClass: "btn  btn-sm btn-success w-50",
                   attrs: { type: "button" },
                   on: { click: _vm.createTask },
                 },
@@ -28655,27 +28701,31 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "card bg-dark text-white",
+        staticClass: "card bg-transparent text-white",
         staticStyle: { width: "18rem" },
       },
       [
-        _c("img", {
-          staticClass: "card-img-top",
-          attrs: {
-            src: "https://i.imgur.com/qEXri9r.png",
-            alt: "Card image cap",
+        _c(
+          "a",
+          {
+            staticClass: "btn stretched-link",
+            attrs: {
+              href: "#",
+              type: "button",
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#createModal",
+            },
           },
-        }),
-        _vm._v(" "),
-        _c("a", {
-          staticClass: "btn stretched-link",
-          attrs: {
-            href: "#",
-            type: "button",
-            "data-bs-toggle": "modal",
-            "data-bs-target": "#createModal",
-          },
-        }),
+          [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: {
+                src: "https://i.imgur.com/qEXri9r.png",
+                alt: "Card image cap",
+              },
+            }),
+          ]
+        ),
       ]
     )
   },
@@ -28684,15 +28734,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        {
-          staticClass: "modal-title text-justify",
-          attrs: { id: "exampleModalLabel" },
-        },
-        [_vm._v("Create Post")]
-      ),
-      _vm._v(" "),
       _c("button", {
         staticClass: "btn-close",
         attrs: {
@@ -28707,18 +28748,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "form",
-      {
-        staticClass: "form-control dropzone",
-        attrs: { action: "/file-upload", id: "dropzone" },
-      },
-      [
-        _c("div", { staticClass: "fallback" }, [
-          _c("input", { attrs: { name: "file", type: "file", multiple: "" } }),
-        ]),
-      ]
-    )
+    return _c("label", { attrs: { for: "dropzoneFile" } }, [
+      _c(
+        "form",
+        {
+          staticClass: "form-control dropzone",
+          attrs: { action: "/file-upload", id: "dropzone" },
+        },
+        [
+          _c("img", {
+            attrs: {
+              src: "https://i.imgur.com/sY5R8uI.png",
+              alt: "upload logo",
+            },
+          }),
+          _vm._v(" "),
+          _c("span", {}, [_vm._v("Upload or drag and drop .PDF file here")]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "input-toggle-off",
+            attrs: { id: "dropzoneFile", type: "file", multiple: "" },
+          }),
+        ]
+      ),
+    ])
   },
   function () {
     var _vm = this

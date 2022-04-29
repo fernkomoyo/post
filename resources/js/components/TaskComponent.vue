@@ -1,5 +1,5 @@
 <template>
-
+    
     <div>
         <div v-if="!loading">
             <img class="rounded mx-auto d-block" src="image" alt="loader">
@@ -10,9 +10,11 @@
         <div class="card-deck">
             <div class="row">
                 <!-- Boton para crear con bootstrap card -->
-                <div class="card bg-dark text-white" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.imgur.com/qEXri9r.png" alt="Card image cap">
-                    <a href="#"  class="btn stretched-link" type="button" data-bs-toggle="modal" data-bs-target="#createModal"></a>
+                <div class="card bg-transparent text-white" style="width: 18rem;">
+                    
+                    <a href="#"  class="btn stretched-link" type="button" data-bs-toggle="modal" data-bs-target="#createModal">
+                        <img class="card-img-top" src="https://i.imgur.com/qEXri9r.png" alt="Card image cap">
+                    </a>
                 </div>
 
             <div class="col-md-4 col-6 my-1 d-flex align-items-stretch" v-for="(task, index) in tasks">
@@ -34,11 +36,12 @@
         <!-- Create Modal -->
             <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content bg-dark text-white">
+                <div class="modal-content bg-black text-white">
                 <div class="modal-header">
-                    <h5 class="modal-title text-justify" id="exampleModalLabel">Create Post</h5>
+                    
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <h2 class="modal-title text-center" id="exampleModalLabel">Create Post</h2>
                 <div class="modal-body ">
 
                     <div class="alet alert-danger" v-if="errors.length > 0">
@@ -49,23 +52,30 @@
 
                     <div class="form-group border-white">
                         <label for="name">Post Title</label>
-                        <input v-model="task.name" type="text" id="name" class="form-control border-white">
+                        <input v-model="task.name" type="text" id="name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
                         <input v-model="task.body" type="text" id="description" class="form-control">
                     </div>
-                    <label for="description">Add Image</label>
-                    <form action="/file-upload" class="form-control dropzone" id="dropzone">
-                        <div class="fallback">
-                            <input name="file" type="file" multiple />
-                        </div>
-                    </form>
+                    <div @dragenter.prevent="toggleActive" @dragleave.prevent="toggleActive" @dragover.prevent @drop.prevent="toggleActive"
+                        :class="{'active-dropzone': active}"   class="center">
+                        <label for="description">Add Image</label>
+                        <label for="dropzoneFile">
+                            <form action="/file-upload" class="form-control dropzone" id="dropzone">
+                                <img src="https://i.imgur.com/sY5R8uI.png" alt="upload logo">
+                                <span class="">Upload or drag and drop .PDF file here</span>
+                                <input id="dropzoneFile" type="file" multiple class="input-toggle-off"/>
+                            </form>
+                        </label>
+                    </div>
+                    
+                     
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Discard</button>
-                    <button @click= "createTask" type="button" class="btn btn-success">Publish</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger w-50" data-bs-dismiss="modal">Discard</button>
+                    <button @click= "createTask" type="button" class="btn  btn-sm btn-success w-50">Publish</button>
                 </div>
                 </div>
             </div>
@@ -120,7 +130,9 @@
 
 
 <script src="../../assets/js/plugins/dropzone.min.js"></script>
+
 <script>
+
     export default {
 
         data(){
